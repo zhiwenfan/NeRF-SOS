@@ -167,6 +167,11 @@
             class="link-block w-inline-block"><img
               src="./NeRF-SOS/5cae3b53b42ebb3dd4175a82_68747470733a2f2f7777772e69636f6e66696e6465722e636f6d2f646174612f69636f6e732f6f637469636f6e732f313032342f6d61726b2d6769746875622d3235362e706e67.png"
               alt="paper" class="paper_img image-8 github_icon_nerf_v2"></a></div>
+        <!-- <div class="column-2 w-col w-col-4 w-col-small-4 w-col-tiny-4"><a
+            href="https://drive.google.com/drive/folders/128yBriW1IG_3NJ5Rp7APSTZsJqdJdfc1?usp=sharing" target="_blank"
+            class="link-block w-inline-block"><img
+              src="./NeRF-SOS/5e7136849ee3b0a0c6a95151_database.svg" alt="paper"
+              class="paper_img image-8_nerf nerf_db_icon"></a></div> -->
       </div>
       <div class="paper_code_nerf w-row">
         <div class="w-col w-col-6 w-col-small-46 w-col-tiny-6">
@@ -175,54 +180,178 @@
         <div class="w-col w-col-6 w-col-small-6 w-col-tiny-6">
           <div class="text-block-2"><strong class="bold-text-nerf_v2">&lt;/Code&gt;</strong></div>
         </div>
+        <!-- <div class="w-col w-col-4 w-col-small-4 w-col-tiny-4">
+          <div class="text-block-2"><strong class="bold-text-nerf_v2">Data</strong></div>
+        </div> -->
       </div>
 
   <div data-anchor="slide1" class="section nerf_section">
     <div class="w-container" style="margin-top: 3em">
-      <h2 class="grey-heading_nerf">Abstract &amp; Method</h2>
-      <p class="paragraph-3 nerf_text" style="color:#000000">Neural volumetric representations have shown the potential that Multi-layer Perceptrons (MLPs) can be optimized with multi-view calibrated  images to represent scene geometry and appearance, without explicit 3D supervision. <br>
-         Object segmentation can enrich many downstream applications based on the learned radiance field. However, introducing hand-crafted segmentation to define regions of interest in a complex real-world scene is non-trivial and expensive as it acquires per view annotation. This paper carries out the exploration of self-supervised learning for object segmentation using NeRF for complex real-world scenes. Our framework, called NeRF with Self-supervised Object Segmentation NeRF-SOS, couples object segmentation and neural radiance field to segment objects in any view within a scene. By proposing a novel collaborative contrastive loss in both appearance and geometry levels, NeRF-SOS encourages NeRF models to distill compact geometry-aware segmentation clusters from their density fields and the self-supervised pre-trained 2D visual features. The self-supervised object segmentation framework can be applied to various NeRF models that both lead to photo-realistic rendering results and convincing segmentation maps for both indoor and outdoor scenarios.
-         <br>
-         Extensive results on the LLFF, Tank & Temple, and BlendedMVS datasets validate the effectiveness of NeRF-SOS. It consistently surpasses other 2D-based self-supervised baselines and predicts finer semantics masks than existing supervised counterparts..</p>
-
-          <div class="ui four column grid" style="display:inline-block">
-            <div class="row" style="display: flex; padding-top: 10px; padding-bottom: 0;">
-              <div class="column" style="display: flex; padding:0; width:25%"><video
-                      src="./NeRF-SOS/videos/flower_rgb.mp4" style="width:100%"
+      <h2 class="grey-heading_nerf">tl, dr</h2>
+      <p class="paragraph-3 nerf_text" style="color:#000000">We propose a novel collaborative contrastive loss for NeRF to segment objects in complex real-world scenes, without any annotation.
+          <div class="ui one column grid">
+            <div class="row">
+              <div class="column"><video
+                      src="./NeRF-SOS/videos/web_video_1.mp4" width="100%"
                       loop autoplay muted playsinline></video></div>
-              <div class="column" style="display: flex; padding:0; width:25%"><video
-                      src="./NeRF-SOS/videos/flower_seg.mp4" style="width:100%"
-                      loop autoplay muted playsinline></video></div>
-              <div class="column" style="display: flex; padding:0; width:25%"><video
-                      src="./NeRF-SOS/videos/fortress_rgb.mp4" style="width:100%"
-                      loop autoplay muted playsinline></video></div>
-              <div class="column" style="display: flex; padding:0; width:25%"><video
-                      src="./NeRF-SOS/videos/fortress_seg.mp4" style="width:100%"
+          </div>
+          <div class="ui one column grid">
+            <div class="row">
+              <div class="column"><video
+                      src="./NeRF-SOS/videos/web_video_2.mp4" width="100%"
                       loop autoplay muted playsinline></video></div>
           </div>
 
-          <div class="nerf_pipeline_cols w-col w-col-12 w-col-tiny-tiny-stack" style="padding-left: 0; padding-right: 0;"><img
-            src="./NeRF-SOS/teaser.png"
-             class="nerf_volume_pipeline"></div>
+          <!-- <div class="ui five column grid">
+            <div class="center aligned row" style="font-size: 1.2em;">
+                <div class="column" style="color:#000000"><b>Ours</b></div>
+                <div class="column" style="color:#000000" >Style3D</div>
+                <div class="column" style="color:#000000">Perceptual Loss</div>
+                <div class="column" style="color:#000000">MCCNet</div>
+                <div class="column" style="color:#000000">ReReVST</div> -->
+
+             <!-- <div class="row">
+              <div class="column"><video
+                      src="./NeRF-SOS/videos/truck_rgb.mp4" width="100%"
+                      loop autoplay muted playsinline></video></div>
+              <div class="column"><video
+                        src="./NeRF-SOS/videos/truck_seg.mp4" width="100%"
+                        loop autoplay muted playsinline></video></div>
+            </div> -->
+        <!-- </div> -->
+          <div class="nerf_pipeline_cols w-col w-col-12 w-col-tiny-tiny-stack"><img
+            src="./NeRF-SOS/web_teaser.svg"
+            sizes="(max-width: 479px) 92vw, (max-width: 767px) 94vw, (max-width: 991px) 465.328125px, 606.6640625px"
+            alt="" class="nerf_volume_pipeline"></div>
 
       <p class="paragraph-3 nerf_text" style="color:#000000">We augment NeRF models by appending a parallel segmentation
         branch to predict point-wise implicit segmentation feature. We propose to update the segmentation
         feature field using a collaborative loss in both appearance and geometry levels. During inference, a
         clustering operation (e.g., K-means) is used to generate object masks, based on the rendered feature
         field.</p>
-      <div class="columns-5 w-row" style="padding-left: 0; padding-right: 0;">
+      <div class="columns-5 w-row">
         <div class="nerf_pipeline_cols w-col w-col-12 w-col-tiny-tiny-stack"><img
             src="./NeRF-SOS/arc.svg"
             sizes="(max-width: 679px) 142vw "
             alt="" class="nerf_volume_pipeline"></div>
       </div>
-      </div>
+      <!-- <p class="paragraph-3 nerf_text" style="color:#000000">We introduce a Style Implicit Module (SIM) to the ordinary implicit representation, -->
+        <!-- and coin the later one as Content Implicit Module (CIM) in our framework. During the training process, the stylized -->
+        <!-- information and content scene are encoded as one continuous representation, and then fused by another Amalgamation Module (AM). </p> -->
+    </div>
   </div>
+  <!-- <div class="white_section_nerf wf-section">
+    <div class="w-container">
+      <h2 class="grey-heading_nerf" style="margin-top: 3em">Results</h2>
+      <p class="paragraph-3 nerf_text nerf_results_text" style="color:#000000">Here are stylization results on NeRF-Synthetic and LLFF datasets.
+        We can see NeRF-SOS generates faithful and view-consistent results for new viewpoints, with rich textures across scenes and styles.</p>
+      <div>
+        <div class="video_class w-embed"><video width="100%" height="100%" muted="" controls="" loop=""
+            preload="metadata"
+            poster="./NeRF-SOS/overall_poster.png">
+            <source
+              src="./NeRF-SOS/overall.mp4"
+              type="video/mp4">
+            Your browser does not support the video tag.
+          </video></div>
+
+      </div> -->
     </div>
   </div>
 
 
   <div>
+    <!-- <h2 class="grey-heading_nerf" style="margin-top: 3em">Comparisons</h2>
+    <p class="paragraph-3 nerf_text" style="color:#000000">We provide more detailed comparisons among NeRF-SOS on NeRF, neural radiance based method (e.g. Style3D),
+      single-image-based style transfer method (e.g. Perceptual Loss) and video-based methods (e.g. MCCNet and ReReVST).
+
+      We can see that stylizations from image-based methods produce noisy and inconsistent stylization as they transfer styles based on single image.
+      Video-based methods generate moderate view-consistency results but failed to generate faithful textures.
+      Method in Style3D generates blur results as it still relies on convolution networks (a.k.a. hypernetwork)
+      to generate the MLP weights for the subsequent volume rendering.
+
+      Different from our pure implicit-based representation, Style3D requires CNNs and a hypernetwork to generate the model weights,
+      which requires a much large storage space than ours (125MB vs. 14MB).</p>
+    <div class="ui five column grid">
+        <div class="center aligned row" style="font-size: 1.2em;">
+            <div class="column" style="color:#000000"><b>Ours</b></div>
+            <div class="column" style="color:#000000" >Style3D</div>
+            <div class="column" style="color:#000000">Perceptual Loss</div>
+            <div class="column" style="color:#000000">MCCNet</div>
+            <div class="column" style="color:#000000">ReReVST</div>
+        </div>
+        <div class="row">
+            <div class="column"><video
+                    src="./NeRF-SOS/compare/ours_lego_thescream.mp4" width="100%"
+                    loop autoplay muted playsinline></video></div>
+            <div class="column"><video
+              src="./NeRF-SOS/compare/style3d_lego_thescream.mp4" width="100%"
+                    loop autoplay muted playsinline></video></div>
+            <div class="column"><video
+              src="./NeRF-SOS/compare/perceptual_lego_thescream.mp4" width="100%"
+                     loop autoplay muted playsinline></video></div>
+            <div class="column"><video
+              src="./NeRF-SOS/compare/mcc_lego_thescream.mp4" width="100%"
+                    loop autoplay muted playsinline></video></div>
+            <div class="column"><video
+              src="./NeRF-SOS/compare/rere_lego_thescream.mp4" width="100%"
+              loop autoplay muted playsinline></video></div>
+        </div>
+        <div class="row">
+          <div class="column"><video
+                  src="./NeRF-SOS/compare/ours_mic_starrynight.mp4" width="100%"
+                  loop autoplay muted playsinline></video></div>
+          <div class="column"><video
+            src="./NeRF-SOS/compare/style3d_mic_starrynight.mp4" width="100%"
+                  loop autoplay muted playsinline></video></div>
+          <div class="column"><video
+            src="./NeRF-SOS/compare/perceptual_mic_starrynight.mp4" width="100%"
+            loop autoplay muted playsinline></video></div>
+          <div class="column"><video
+            src="./NeRF-SOS/compare/mcc_mic_starrynight.mp4" width="100%"
+                  loop autoplay muted playsinline></video></div>
+          <div class="column"><video
+            src="./NeRF-SOS/compare/rere_mic_starrynight.mp4" width="100%"
+                    loop autoplay muted playsinline></video></div>
+      </div>
+
+      <div class="row">
+        <div class="column"><video
+                src="./NeRF-SOS/compare/ours_chair_rainprincess.mp4" width="100%"
+                loop autoplay muted playsinline></video></div>
+        <div class="column"><video
+          src="./NeRF-SOS/compare/style3d_chair_rainprincess.mp4" width="100%"
+                loop autoplay muted playsinline></video></div>
+        <div class="column"><video
+          src="./NeRF-SOS/compare/perceptual_chair_rainprincess.mp4" width="100%"
+                 loop autoplay muted playsinline></video></div>
+        <div class="column"><video
+          src="./NeRF-SOS/compare/mcc_chair_rainprincess.mp4" width="100%"
+                loop autoplay muted playsinline></video></div>
+        <div class="column"><video
+          src="./NeRF-SOS/compare/rere_chair_rainprincess.mp4" width="100%"
+                  loop autoplay muted playsinline></video></div>
+    </div>
+
+    <div class="row">
+      <div class="column"><video
+              src="./NeRF-SOS/compare/ours_room_thescream.mp4" width="100%"
+              loop autoplay muted playsinline></video></div>
+      <div class="column"><video
+        src="./NeRF-SOS/compare/style3d_room_thescream.mp4" width="100%"
+              loop autoplay muted playsinline></video></div>
+      <div class="column"><video
+        src="./NeRF-SOS/compare/perceptual_room_thescream.mp4" width="100%"
+               loop autoplay muted playsinline></video></div>
+      <div class="column"><video
+        src="./NeRF-SOS/compare/mcc_room_thescream.mp4" width="100%"
+              loop autoplay muted playsinline></video></div>
+      <div class="column"><video
+        src="./NeRF-SOS/compare/rere_room_thescream.mp4" width="100%"
+                loop autoplay muted playsinline></video></div>
+  </div>
+
+    </div> -->
 </div>
 
   <div class="white_section_nerf wf-section">
